@@ -10,9 +10,10 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 app.use(express.json());
-
+//cookie parser must be made before the router
+app.use(cookieParser());
 app.use("/api/auth",authRoutes);
-app.unsubscribe(cookieParser());
+
 
 app.listen(PORT, () => {
     console.log("server is running on Port:" + PORT);
