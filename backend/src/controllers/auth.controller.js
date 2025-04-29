@@ -5,6 +5,11 @@ import bcrypt from "bcryptjs"
 export const signup = async (req, res) => {
     const {fullName,email,password} = req.body
     try {
+
+        if(!fullName || !email || !password){
+            return res.status(400).json({ message: "All fields are required"});
+        }
+
         //hashing password with bcryptjs
 
         //checking user password
@@ -20,7 +25,7 @@ export const signup = async (req, res) => {
         }
         
         const salt = await bcrypt.genSalt(10);
-        const hashedPass = await bcrypt.hash(password,salt);
+        const hashedPassword = await bcrypt.hash(password,salt);
         
         const newUser = new User({
             fullName: fullName,
