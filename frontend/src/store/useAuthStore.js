@@ -12,6 +12,7 @@ export const useAuthStore = create((set) => ({
     isUpdatingProfile: false,
     isCheckingAuth: true,
 
+    //Function to check state changing the global stored value
     checkAuth: async() => {
         try {
             //Point this to the backend checkAuth.js file, basically axios acts like the postman
@@ -24,5 +25,7 @@ export const useAuthStore = create((set) => ({
         } finally {
             set({isCheckingAuth: false});
         }
-    }
+    },
+
+    signup: async(data) => {},
 }));
