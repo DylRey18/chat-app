@@ -11,6 +11,7 @@ export const useAuthStore = create((set) => ({
     isLoggingIn : false,
     isUpdatingProfile: false,
     isCheckingAuth: true,
+    onlineUsers: [],
 
     //Function to check state changing the global stored value
     checkAuth: async() => {
