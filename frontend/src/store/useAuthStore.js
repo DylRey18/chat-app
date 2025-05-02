@@ -2,7 +2,7 @@ import {create} from "zustand"
 import { axiosInstance } from "../lib/axios.js";
 import toast from "react-hot-toast";
 import {io} from "socket.io-client";
-const HOME_URL = "http://localhost:5001";
+const HOME_URL = import.meta.env.MODE === "development" ? "http://localhost:5001" : "/";
 // global state manager basically means
 // these attributes will be shared among all the pages 
 // to keep in check of whats actually going on
